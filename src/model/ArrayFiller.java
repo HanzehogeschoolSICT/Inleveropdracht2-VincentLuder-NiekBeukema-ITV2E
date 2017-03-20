@@ -9,7 +9,7 @@ public class ArrayFiller {
 
     private Random random = new Random();
 
-    public void fillArray(String[][] array){
+    public String[][] fillArray(String[][] array){
         int counter = 0;
         for(int i = 0; i < array.length; i++){
             for(int j = 0; j < array.length;j++){
@@ -17,7 +17,7 @@ public class ArrayFiller {
                 counter++;
             }
         }
-        System.out.println(counter);
+        return array;
     }
 
     private String generateLetter(){
@@ -38,7 +38,7 @@ public class ArrayFiller {
         ArrayFiller filler = new ArrayFiller();
         String[][] array = new String[10][10];
         filler.fillArray(array);
-
+        filler.printArray(array);
 
     }
 }
