@@ -4,12 +4,15 @@ package model;
  * Created by Gebruiker on 21-3-2017.
  */
 public class Test {
-    private String[] woorden = {"hoi","kak","boi"};
-    private String[][] array = new String[3][3];
+    private String[] woorden = {"ioh","kak","boi"};
+    //private String[][] array = new String[3][3];
+    private String[][] array = {{"i","o","h"},
+                                 {"k","a","k"},
+                                  {"b","o","i"}};
     private ArrayFiller filler = new ArrayFiller();
 
     public Test(){
-        filler.fillArray(array);
+
     }
 
     public void searchWord(String[][] array){
@@ -24,9 +27,11 @@ public class Test {
         //horizontale search
         for(int i = numberOfRows-1; i< numberOfRows;i++){
             for(int j =0; j < numberOfColumns; j++){
-                if(woord.contains(array[0][j])){
+                test += array[0][j];
+                if(woord.contains(Character.toString(test.charAt(j)))){
                     System.out.println("letter found in word");
-                    test += array[0][j];
+                    System.out.println("letter found is " + Character.toString(test.charAt(j)));
+                    //test += array[0][j];
                 }
 
 
