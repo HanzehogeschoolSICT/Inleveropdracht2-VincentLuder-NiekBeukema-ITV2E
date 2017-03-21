@@ -10,11 +10,9 @@ public class ArrayFiller {
     private Random random = new Random();
 
     public String[][] fillArray(String[][] array){
-        int counter = 0;
         for(int i = 0; i < array.length; i++){
             for(int j = 0; j < array.length;j++){
                 array[i][j] = generateLetter();
-                counter++;
             }
         }
         return array;
