@@ -20,11 +20,16 @@ public class Test {
         // Check rows
 
         String test = "";
-
+        String woord = woorden[0];
         //horizontale search
-        for(int i = 0; i< numberOfRows;i++){
+        for(int i = numberOfRows-1; i< numberOfRows;i++){
             for(int j =0; j < numberOfColumns; j++){
-                test += array[0][j];
+                if(woord.contains(array[0][j])){
+                    System.out.println("letter found in word");
+                    test += array[0][j];
+                }
+
+
             }
         }
         System.out.println(test);
