@@ -23,16 +23,28 @@ public class Test {
         // Check rows
 
         String test = "";
-        String woord = woorden[0];
+        //String test1 = "";
+        //String test2 = "";
+        int woordPosition = 0;
+        int woordenLijstLengte = woorden.length;
+        String woord = woorden[woordPosition];
+
+        String woord1 = woorden[1];
+        String woord2 = woorden[2];
         //horizontale search
         for(int i = numberOfRows-1; i< numberOfRows;i++){
-            for(int j =0; j < numberOfColumns; j++){
+            for(int j =0; j < numberOfColumns && j < woordenLijstLengte ; j++){
                 test += array[0][j];
+                //test1 += array[1][j];
+                //test2 += array[2][j];
 
                 if(Character.toString(woord.charAt(j)).equals(Character.toString(test.charAt(j))) ){
                     System.out.println("letter found in word");
                     System.out.println("letter found is " + Character.toString(test.charAt(j)));
                     //test += array[0][j];
+                }
+                if(test.equals(woord)){
+                    System.out.println("woord gevonden");
                 }
 
 
@@ -43,7 +55,47 @@ public class Test {
 
 
     }
+    /**
+    public void searchWord1(String[][] array){
+        this.array = array;
 
+        int numberOfRows = array.length;
+        int numberOfColumns = array[0].length;
+        // Check rows
+
+        String test = "";
+
+        int woordPosition = 0;
+        int woordenLijstLengte = woorden.length;
+        String woord = woorden[woordPosition];
+
+        //horizontale search
+        for(int i = numberOfRows-1; i< numberOfRows;i++) {
+            int j = 0;
+            while (j < numberOfColumns) {
+                test += array[0][j];
+
+                if (Character.toString(woord.charAt(j)).equals(Character.toString(test.charAt(j)))) {
+                    System.out.println("letter found in word");
+                    System.out.println("letter found is " + Character.toString(test.charAt(j)));
+                    j++;
+                    //test += array[0][j];
+                }
+                if (test.equals(woord)) {
+                    System.out.println("woord gevonden");
+                    woordPosition ++;
+                    j = 0;
+                }
+                else{
+                    j++;
+                }
+
+
+            }
+
+        }
+    }
+    **/
     public String[][] getArray(){
         return array;
     }
