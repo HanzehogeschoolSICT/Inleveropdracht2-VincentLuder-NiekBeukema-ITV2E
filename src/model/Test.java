@@ -19,12 +19,37 @@ public class Test {
 
     public void searchWord(int xPos, int yPos, String word){
         // "a" "kaas"
+        boolean isVisited;
+
         word += board[xPos][yPos];
-        for(String checkWord: woorden){
-            if (word.equals(checkWord)){
-                foundWords.add(checkWord);
+        try{
+            for(String checkWord: woorden){
+                if (word.equals(checkWord)){
+                    foundWords.add(checkWord);
+                }
+            }
+
+            for(String prefix: woorden){
+                if(!prefix.startsWith(word)){
+                    return;
+                }
+                else{
+                    searchWord(xPos+1, yPos, word); // positie naar rechts
+                    searchWord(xPos, yPos+1, word); // positie omhoog
+                    searchWord(xPos+1, yPos, word); // positie naar links
+                    searchWord(xPos+1, yPos, word); // positie naar beneden
+                }
             }
         }
+        catch(IndexOutOfBoundsException ex){
+            System.out.println(ex);
+        }
+
+
+
+
+
+
 
 
     }
