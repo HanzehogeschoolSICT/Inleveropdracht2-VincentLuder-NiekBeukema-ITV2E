@@ -18,6 +18,18 @@ public class Test {
 
     }
 
+    public void solve(){
+
+        for(int i = 0; i < 3; i++){
+            for(int j = 0; j < 3; j++){
+                searchWord(i,j,"");
+            }
+        }
+        for(String string : getArray()){
+            System.out.println(string);
+        }
+    }
+
     public void searchWord(int xPos, int yPos, String word){
         // "a" "kaas"
         try {
@@ -78,5 +90,6 @@ public class Test {
         for(String string : test.getArray()){
             System.out.println(string);
         }
+        test.solve();
     }
 }
