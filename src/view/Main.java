@@ -20,7 +20,7 @@ public class Main extends Application{
     @Override
     public void start(Stage primaryStage) throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        String fxmlDocPath = "C:\\Users\\Gebruiker\\IdeaProjects\\Inleveropdracht2-VincentLuder-NiekBeukema-ITV2E\\src\\view\\layout.fxml";
+        String fxmlDocPath = "C:\\Users\\Niek\\IdeaProjects\\Inleveropdracht2-VincentLuder-NiekBeukema-ITV2E\\src\\view\\layout.fxml";
         FileInputStream fxmlStream = new FileInputStream(fxmlDocPath);
         Pane rootPane = loader.load(fxmlStream);
         Scene scene = new Scene(rootPane);

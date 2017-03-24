@@ -21,10 +21,9 @@ public class Controller {
     @FXML private TextArea foundWordsArea;
     private ArrayFiller arrayFiller = new ArrayFiller();
 
-    private int columnSize = 3;
-    private int rowSize = 3;
+    private int columnSize = 4;
+    private int rowSize = 4;
 
-    private Cell[][] cell = new Cell[rowSize][columnSize];
     String[][] letterArray = new String[rowSize][columnSize];
 
     public Controller(){}
