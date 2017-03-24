@@ -51,9 +51,14 @@ public class Controller {
 
     @FXML
     private void startSolver(){
-        Platform.runLater(gevondenWoorden=solver.solve(letterArray);
-        for(String word:gevondenWoorden){
-            foundWordsArea.appendText(word);
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                gevondenWoorden=solver.solve(letterArray);
+                for(String word:gevondenWoorden){
+                    foundWordsArea.appendText(word);
+                }
+            }
         });
     }
 

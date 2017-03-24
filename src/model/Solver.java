@@ -39,7 +39,7 @@ public class Solver {
 
     public void loadWordList(){
         try {
-            BufferedReader br = new BufferedReader(new FileReader("C:/Users/Niek/IdeaProjects/Inleveropdracht2-VincentLuder-NiekBeukema-ITV2E/src/model/dict.txt"));
+            BufferedReader br = new BufferedReader(new FileReader("C:/Users/Gebruiker/IdeaProjects/Inleveropdracht2-VincentLuder-NiekBeukema-ITV2E/src/model/dict.txt"));
             String line;
             while ((line = br.readLine()) != null) {
                 woordenLijst.add(line);
