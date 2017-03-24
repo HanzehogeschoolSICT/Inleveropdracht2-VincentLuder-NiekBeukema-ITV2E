@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class Test {
     private String[] woorden = {"hoi","kak","boi"};
     //private String[][] array = new String[3][3];
-    private String[][] board = {{"h","k","i"},
+    private String[][] board = {{"h","o","i"},
                                  {"k","a","k"},
                                   {"b","o","i"}};
     private boolean[][] isVisited = new boolean[4][4];
@@ -16,6 +16,18 @@ public class Test {
     private ArrayList<String> foundWords = new ArrayList<>();
     public Test(){
 
+    }
+
+    public void solve(){
+
+        for(int i = 0; i < 3; i++){
+            for(int j = 0; j < 3; j++){
+                searchWord(i,j,"");
+            }
+        }
+        for(String string : getArray()){
+            System.out.println(string);
+        }
     }
 
     public void searchWord(int xPos, int yPos, String word){
@@ -77,5 +89,6 @@ public class Test {
         for(String string : test.getArray()){
             System.out.println(string);
         }
+        test.solve();
     }
 }
