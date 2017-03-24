@@ -10,9 +10,6 @@ import java.io.FileInputStream;
 import java.io.IOException;
 
 public class Main extends Application{
-
-    //String fxmlDocPath = "/home/niek/Bureaublad/Nieksort/src/layout.fxml";
-
     public static void main(String[] args) {
         Application.launch(args);
     }

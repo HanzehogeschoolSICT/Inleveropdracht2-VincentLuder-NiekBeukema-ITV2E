@@ -1,6 +1,5 @@
 package model;
 import java.io.BufferedReader;
-import java.io.*;
 import java.io.FileInputStream;
 import java.io.FileReader;
 import java.util.*;
@@ -8,10 +7,8 @@ import java.util.*;
 /**
  * Gemaakt door Vincent & Niek
  * Met hulp van Ronan
- *
  * Bronnen: http://stackoverflow.com/questions/5868369/how-to-read-a-large-text-file-line-by-line-using-java
  * http://stackoverflow.com/questions/23075689/how-to-do-a-recursive-search-for-a-word-in-the-boggle-game-board
- *
  */
 public class Solver {
 
@@ -54,7 +51,6 @@ public class Solver {
 
     public void searchWord(String[][] board, int xPos, int yPos, String word){
         boolean recursive = false;
-        // "a" "kaas"
         try {
             word += board[xPos][yPos];
             if (isVisited[xPos][yPos]) {
@@ -71,7 +67,6 @@ public class Solver {
             System.out.println(woordenLijst.get(a));
 
         }
-        //de booleans worden toegevoegd aan de array
 
         for(String checkWord: woordenLijst){
             if (checkWord.equals(word)){
@@ -96,9 +91,5 @@ public class Solver {
             searchWord(board,xPos-1, yPos+1, word);//topleft
             searchWord(board,xPos+1, yPos-1, word);//bottomright
         } else { return;}
-        // for(String prefix: woorden){
-
-        // }
-
     }
 }
