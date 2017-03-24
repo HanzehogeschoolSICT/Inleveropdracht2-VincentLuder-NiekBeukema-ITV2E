@@ -55,8 +55,13 @@ public class Controller {
             @Override
             public void run() {
                 gevondenWoorden=solver.solve(letterArray);
+
+
                 for(String word:gevondenWoorden){
-                    foundWordsArea.appendText(word);
+                    if(!gevondenWoorden.isEmpty()){
+                        foundWordsArea.appendText(word);
+                    }
+
                 }
             }
         });

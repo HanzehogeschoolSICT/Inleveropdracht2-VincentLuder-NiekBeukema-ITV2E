@@ -16,6 +16,7 @@ public class Solver {
     Set<String> foundWords = new HashSet<String>();
 
     public Set<String> solve(String[][] board){
+        loadWordList();
         isVisited = new boolean[board.length][board[0].length];
         for(int i = 0; i < board.length; i++){
             for(int j = 0; j < board[0].length; j++){
