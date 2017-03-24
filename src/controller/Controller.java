@@ -47,6 +47,8 @@ public class Controller {
     private void doReset(){
         bogglePane.getChildren().clear();
         createLetter(letterArray);
+        gevondenWoorden.clear();
+        foundWordsArea.clear();
     }
 
     @FXML
@@ -55,22 +57,13 @@ public class Controller {
             @Override
             public void run() {
                 gevondenWoorden=solver.solve(letterArray);
-
-
                 for(String word:gevondenWoorden){
-                    if(!gevondenWoorden.isEmpty()){
-                        foundWordsArea.appendText(word);
-                    }
-
+                    foundWordsArea.appendText(word + "\n");
                 }
             }
         });
     }
 
-    @FXML
-    private void randomInput(){
-
-    }
     private void createLetter(String[][] array){
         String[][] genArray = arrayFiller.fillArray(array);
         for(int i=0; i< rowSize; i++){

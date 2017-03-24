@@ -6,13 +6,17 @@ import java.io.FileReader;
 import java.util.*;
 
 /**
+ * Gemaakt door Vincent & Niek
+ * Met hulp van Ronan
+ *
  * Bronnen: http://stackoverflow.com/questions/5868369/how-to-read-a-large-text-file-line-by-line-using-java
+ * http://stackoverflow.com/questions/23075689/how-to-do-a-recursive-search-for-a-word-in-the-boggle-game-board
  *
  */
 public class Solver {
 
     private boolean[][] isVisited;
-    private ArrayList<String> woordenLijst;
+    private ArrayList<String> woordenLijst = new ArrayList<>();
     Set<String> foundWords = new HashSet<String>();
 
     public Set<String> solve(String[][] board){
@@ -24,10 +28,20 @@ public class Solver {
                 clearVisited(board.length,board[0].length);
             }
         }
-        for(String woord: foundWords){
-            System.out.println(woord);
-        }
         return foundWords;
+    }
+
+    public void loadWordList(){
+        try {
+            BufferedReader br = new BufferedReader(new FileReader("C:/Users/Niek/IdeaProjects/Inleveropdracht2-VincentLuder-NiekBeukema-ITV2E/src/model/dict.txt"));
+            String line;
+            while ((line = br.readLine()) != null) {
+                woordenLijst.add(line);
+                System.out.println(line);
+            }
+        } catch (Exception ex){
+            System.out.println(ex);
+        }
     }
 
     public void clearVisited(int xSize, int ySize){
@@ -36,19 +50,6 @@ public class Solver {
                 isVisited[i][j] = false;
             }
         }
-    }
-
-    public void loadWordList(){
-        try {
-            BufferedReader br = new BufferedReader(new FileReader("C:/Users/Gebruiker/IdeaProjects/Inleveropdracht2-VincentLuder-NiekBeukema-ITV2E/src/model/dict.txt"));
-            String line;
-            while ((line = br.readLine()) != null) {
-                woordenLijst.add(line);
-            }
-        } catch (Exception ex){
-            System.out.println(ex);
-        }
-
     }
 
     public void searchWord(String[][] board, int xPos, int yPos, String word){
@@ -66,13 +67,17 @@ public class Solver {
             return;
         }
 
+        for (int a= 0; a < 30; a++) {
+            System.out.println(woordenLijst.get(a));
+
+        }
         //de booleans worden toegevoegd aan de array
 
-        //het woord dat getest moet worden wordt elke stap groter. Tenzij er niks is.
         for(String checkWord: woordenLijst){
             if (checkWord.equals(word)){
                 foundWords.add(word);
             }
+
         }
 
         for(String dictWord:woordenLijst){
