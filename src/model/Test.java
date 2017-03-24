@@ -8,10 +8,10 @@ import java.util.ArrayList;
 public class Test {
     private String[] woorden = {"hoi","kak","boi"};
     //private String[][] array = new String[3][3];
-    private String[][] board = {{"h","o","i"},
+    private String[][] board = {{"h","k","i"},
                                  {"k","a","k"},
                                   {"b","o","i"}};
-    private boolean[][] isVisited;
+    private boolean[][] isVisited = new boolean[4][4];
     private ArrayFiller filler = new ArrayFiller();
     private ArrayList<String> foundWords = new ArrayList<>();
     public Test(){
@@ -23,9 +23,10 @@ public class Test {
         if(isVisited[xPos][yPos]){
             return;
         }
-
+        //de booleans worden toegevoegd aan de array.
         isVisited[xPos][yPos] = true;
 
+        //het woord dat getest moet worden wordt elke stap groter. Tenzij er niks is.
         word += board[xPos][yPos];
         try{
             for(String checkWord: woorden){
@@ -54,32 +55,27 @@ public class Test {
             System.out.println(ex);
         }
 
-
-
-
-
-
-
-
     }
-    
 
 
-    public String[][] getArray(){
-        return board;
+
+
+    public ArrayList<String> getArray(){
+        return foundWords;
     }
 
 
 
     public static void main(String[] args) {
         Test test = new Test();
-        for(int i = 0; i < test.getArray().length; i++){
-            for (int j =0; j<test.getArray().length;j++){
-                System.out.println(test.getArray()[i][j]);
+
+        for(int i = 0; i < 3; i++){
+            for(int j = 0; j < 3; j++){
+                test.searchWord(i,j,"");
             }
         }
-
-
-        test.searchWord(test.getArray());
+        for(String string : test.getArray()){
+            System.out.println(string);
+        }
     }
 }
