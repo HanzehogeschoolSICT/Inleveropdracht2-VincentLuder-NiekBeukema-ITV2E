@@ -8,6 +8,7 @@ import java.util.ArrayList;
 public class Test {
     private String[] woorden = {"hoi","kak","boi"};
     //private String[][] array = new String[3][3];
+    //dikheid
     private static String[][] board = {{"h","k","i"},
             {"k","a","k"},
             {"b","o","i"}};
