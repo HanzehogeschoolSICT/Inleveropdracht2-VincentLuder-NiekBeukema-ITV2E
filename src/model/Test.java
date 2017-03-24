@@ -43,10 +43,10 @@ public class Test {
                     searchWord(xPos, yPos+1, word); // positie omhoog
                     searchWord(xPos+1, yPos, word); // positie naar links
                     searchWord(xPos+1, yPos, word); // positie naar beneden
-                    searchWord((xPos+1, yPos+1, word); //topright
-                    searchWord((xPos-1, yPos-1, word);//bottomleft
-                    searchWord((xPos-1, yPos+1, word);//topleft
-                    searchWord((xPos+1, yPos-1, word);//bottomright
+                    searchWord((xPos+1), yPos+1, word); //topright
+                    searchWord((xPos-1), yPos-1, word);//bottomleft
+                    searchWord((xPos-1), yPos+1, word);//topleft
+                    searchWord((xPos+1), yPos-1, word);//bottomright
                 }
             }
         }
