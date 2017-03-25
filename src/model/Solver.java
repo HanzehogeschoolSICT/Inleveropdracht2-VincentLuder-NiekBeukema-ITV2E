@@ -49,12 +49,9 @@ public class Solver {
     }
 
     private void searchWord(String[][] board, int xPos, int yPos, String word){
-        boolean recursive = false;
         try {
             word += board[xPos][yPos];
-            if (isVisited[xPos][yPos]) {
-                return;
-            }
+            if (isVisited[xPos][yPos]) {return;}
             isVisited[xPos][yPos] = true;
         }
         catch(IndexOutOfBoundsException ex){
@@ -66,11 +63,7 @@ public class Solver {
             if (checkWord.equals(word)){
                 foundWords.add(word);
             }
-
-        }
-
-        for(String dictWord:woordenLijst){
-            if(dictWord.startsWith(word)){
+            if(checkWord.startsWith(word)){
                 searchWord(board,xPos+1, yPos, word); // positie naar rechts
                 searchWord(board,xPos, yPos+1, word); // positie omhoog
                 searchWord(board,xPos-1, yPos, word); // positie naar links
@@ -82,6 +75,5 @@ public class Solver {
                 break;
             }
         }
-
     }
 }
