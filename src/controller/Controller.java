@@ -2,11 +2,9 @@ package controller;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.geometry.HPos;
-import javafx.geometry.Pos;
 import javafx.geometry.VPos;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
 import model.ArrayFiller;
@@ -30,9 +28,9 @@ public class Controller {
     private int columnSize = 4;
     private int rowSize = 4;
 
-    Solver solver = new Solver();
-    String[][] letterArray = new String[rowSize][columnSize];
-    Set<String> gevondenWoorden = new HashSet<String>();
+    private Solver solver = new Solver();
+    private String[][] letterArray = new String[rowSize][columnSize];
+    private Set<String> gevondenWoorden = new HashSet<>();
 
 
     public Controller(){}

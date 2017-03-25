@@ -24,9 +24,9 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
       </GridPane>
-      <Button fx:id="resetButton" layoutX="381.0" layoutY="14.0" mnemonicParsing="false" onAction="#doReset" prefHeight="39.0" prefWidth="200.0" text="Reset dit ding!" />
+      <Button fx:id="resetButton" layoutX="381.0" layoutY="14.0" mnemonicParsing="false" onAction="#doReset" prefHeight="39.0" prefWidth="200.0" text="Reset!" />
       <TextArea fx:id="foundWordsArea" layoutX="376.0" layoutY="186.0" prefHeight="200.0" prefWidth="418.0" />
       <Label layoutX="381.0" layoutY="161.0" text="Gevonden woorden:" />
-      <Button fx:id="startButton" layoutX="586.0" layoutY="14.0" mnemonicParsing="false" onAction="#startSolver" prefHeight="39.0" prefWidth="200.0" text="Laat de magie beginnen" />
+      <Button fx:id="startButton" layoutX="586.0" layoutY="14.0" mnemonicParsing="false" onAction="#startSolver" prefHeight="39.0" prefWidth="200.0" text="Start" />
    </children>
 </Pane>

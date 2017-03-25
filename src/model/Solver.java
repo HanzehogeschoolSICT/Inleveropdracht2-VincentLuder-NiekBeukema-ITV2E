@@ -14,7 +14,7 @@ public class Solver {
 
     private boolean[][] isVisited;
     private ArrayList<String> woordenLijst = new ArrayList<>();
-    Set<String> foundWords = new HashSet<String>();
+    private Set<String> foundWords = new HashSet<String>();
 
     public Set<String> solve(String[][] board){
         loadWordList();
@@ -28,20 +28,19 @@ public class Solver {
         return foundWords;
     }
 
-    public void loadWordList(){
+    private void loadWordList(){
         try {
             BufferedReader br = new BufferedReader(new FileReader("C:/Users/Niek/IdeaProjects/Inleveropdracht2-VincentLuder-NiekBeukema-ITV2E/src/model/dict.txt"));
             String line;
             while ((line = br.readLine()) != null) {
                 woordenLijst.add(line);
-                System.out.println(line);
             }
         } catch (Exception ex){
             System.out.println(ex);
         }
     }
 
-    public void clearVisited(int xSize, int ySize){
+    private void clearVisited(int xSize, int ySize){
         for(int i = 0; i <xSize; i++) {
             for(int j = 0; j <ySize; j++) {
                 isVisited[i][j] = false;
@@ -49,7 +48,7 @@ public class Solver {
         }
     }
 
-    public void searchWord(String[][] board, int xPos, int yPos, String word){
+    private void searchWord(String[][] board, int xPos, int yPos, String word){
         boolean recursive = false;
         try {
             word += board[xPos][yPos];
@@ -63,11 +62,6 @@ public class Solver {
             return;
         }
 
-        for (int a= 0; a < 30; a++) {
-            System.out.println(woordenLijst.get(a));
-
-        }
-
         for(String checkWord: woordenLijst){
             if (checkWord.equals(word)){
                 foundWords.add(word);
@@ -77,19 +71,17 @@ public class Solver {
 
         for(String dictWord:woordenLijst){
             if(dictWord.startsWith(word)){
-                recursive = true;
+                searchWord(board,xPos+1, yPos, word); // positie naar rechts
+                searchWord(board,xPos, yPos+1, word); // positie omhoog
+                searchWord(board,xPos-1, yPos, word); // positie naar links
+                searchWord(board,xPos, yPos-1, word); // positie naar beneden
+                searchWord(board,xPos+1, yPos+1, word); //topright
+                searchWord(board,xPos-1, yPos-1, word);//bottomleft
+                searchWord(board,xPos-1, yPos+1, word);//topleft
+                searchWord(board,xPos+1, yPos-1, word);//bottomright
                 break;
             }
         }
-        if(recursive){
-            searchWord(board,xPos+1, yPos, word); // positie naar rechts
-            searchWord(board,xPos, yPos+1, word); // positie omhoog
-            searchWord(board,xPos-1, yPos, word); // positie naar links
-            searchWord(board,xPos, yPos-1, word); // positie naar beneden
-            searchWord(board,xPos+1, yPos+1, word); //topright
-            searchWord(board,xPos-1, yPos-1, word);//bottomleft
-            searchWord(board,xPos-1, yPos+1, word);//topleft
-            searchWord(board,xPos+1, yPos-1, word);//bottomright
-        } else { return;}
+
     }
 }
