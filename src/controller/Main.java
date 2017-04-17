@@ -1,11 +1,16 @@
-package view;
+package controller;
 
 import javafx.application.Application;
+import javafx.application.Platform;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 
@@ -16,13 +21,9 @@ public class Main extends Application{
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        String fxmlDocPath = "C:\\Users\\Niek\\IdeaProjects\\Inleveropdracht2-VincentLuder-NiekBeukema-ITV2E\\src\\view\\layout.fxml";
-        FileInputStream fxmlStream = new FileInputStream(fxmlDocPath);
-        Pane rootPane = loader.load(fxmlStream);
-        Scene scene = new Scene(rootPane);
-        primaryStage.setScene(scene);
-        primaryStage.setTitle("Boggle Geval");
+        Parent root = FXMLLoader.load(getClass().getResource("/view/layout.fxml"));
+        primaryStage.setScene(new Scene(root));
         primaryStage.show();
+
     }
 }

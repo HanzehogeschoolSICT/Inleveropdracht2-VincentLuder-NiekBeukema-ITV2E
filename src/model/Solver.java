@@ -2,6 +2,8 @@ package model;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileReader;
+import java.io.IOException;
+import java.net.URL;
 import java.util.*;
 
 /**
@@ -30,13 +32,14 @@ public class Solver {
 
     private void loadWordList(){
         try {
-            BufferedReader br = new BufferedReader(new FileReader("C:/Users/Niek/IdeaProjects/Inleveropdracht2-VincentLuder-NiekBeukema-ITV2E/src/model/dict.txt"));
+            URL url = getClass().getResource("dict.txt");
+            BufferedReader br = new BufferedReader(new FileReader(url.getPath()));
             String line;
             while ((line = br.readLine()) != null) {
                 woordenLijst.add(line);
             }
-        } catch (Exception ex){
-            System.out.println(ex);
+        } catch (IOException ex){
+            ex.printStackTrace();
         }
     }
 
@@ -49,21 +52,15 @@ public class Solver {
     }
 
     private void searchWord(String[][] board, int xPos, int yPos, String word){
-        try {
             word += board[xPos][yPos];
             if (isVisited[xPos][yPos]) {return;}
             isVisited[xPos][yPos] = true;
-        }
-        catch(IndexOutOfBoundsException ex){
-            System.out.println(ex);
-            return;
-        }
 
         for(String checkWord: woordenLijst){
             if (checkWord.equals(word)){
                 foundWords.add(word);
             }
-            if(checkWord.startsWith(word)){
+            if(checkWord.startsWith(word) && xPos>0 && yPos>0 && xPos<board.length-1 && yPos<board.length-1 ){
                 searchWord(board,xPos+1, yPos, word); // positie naar rechts
                 searchWord(board,xPos, yPos+1, word); // positie omhoog
                 searchWord(board,xPos-1, yPos, word); // positie naar links
